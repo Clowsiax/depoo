@@ -12,34 +12,14 @@ class Ogrenci:
 
     def ortalama_hesapla(self):
         if self.vize is None or self.final is None:
-            return None
-        return (self.vize * 0.40) + (self.final * 0.60)
+            return 0
+
+        return round((self.vize * 0.4) + (self.final * 0.6), 2)
 
     def durum_hesapla(self):
         ortalama = self.ortalama_hesapla()
-
-        if ortalama is None:
-            return "Not girilmedi"
 
         if ortalama >= 50:
             return "Geçti"
         else:
             return "Kaldı"
-
-    def bilgi_goster(self):
-        ortalama = self.ortalama_hesapla()
-
-        print("\n----- Öğrenci Bilgileri -----")
-        print(f"Ad Soyad   : {self.ad} {self.soyad}")
-        print(f"Numara     : {self.numara}")
-
-        if ortalama is None:
-            print("Vize       : Not girilmedi")
-            print("Final      : Not girilmedi")
-            print("Ortalama   : Hesaplanmadı")
-            print("Durum      : Not girilmedi")
-        else:
-            print(f"Vize       : {self.vize}")
-            print(f"Final      : {self.final}")
-            print(f"Ortalama   : {ortalama}")
-            print(f"Durum      : {self.durum_hesapla()}")
